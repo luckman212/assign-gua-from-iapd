@@ -15,11 +15,11 @@ _Tested only on pfSense+ 22.05, but should work for CE as well_
 assign_gua_from_iapd.sh <ifname>
 ```
 
-# Cron etc.
+# Automatic Update
 
-You can schedule this to occur on regular intervals using the Cron package, or use [this small patch][2] (apply with System Patches) to have the script automatically hooked into the dhcp6c request/renew process.
+You can schedule this to occur at regular intervals using the Cron package, or use [this small patch][2] (apply with System Patches) to have the script automatically hooked into the dhcp6c request/renew process.
 
-Other integrations such as `devd` (probably needs to wait for FreeBSD 14 which [brings a new `ADDR_ADD` event][1]— that will land with pfSense 22.11) are left as an exercise to the reader 😉
+Tighter integrations such as `devd` will need to wait for FreeBSD 14 which [brings a new `ADDR_ADD` event][1]. That will be landing with pfSense 22.11, so I will probably update this around then if there's any way to make it more efficient.
 
 # Reference
 
