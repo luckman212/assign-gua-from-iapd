@@ -25,9 +25,12 @@ first = last_net[1]
 print(first)' $IA_PD)
 [ -n "$GUA" ] || { _log "failed to calculate GUA"; exit 1; }
 _log "GUA: $GUA"
-_log "assigning $GUA to interface $IFACE"
-if /sbin/ifconfig $IFACE inet6 $GUA prefixlen 64; then
+if ! /sbin/ifconfig $IFACE inet6 | /usr/bin/grep -q $GUA; then
+  _log "assigning $GUA to interface $IFACE"
+  /sbin/ifconfig $IFACE inet6 $GUA prefixlen 64
   _log "restarting dpinger"
   /usr/local/bin/php -r 'include("gwlb.inc"); setup_gateways_monitor();'
+  echo "done"
+else
+  _log "$GUA already exists on interface $IFACE"
 fi
-echo "done"
