@@ -2,7 +2,7 @@
 
 Helper script for pfSense. It takes the first address from the top subnet of a delegated `::/56` and assigns it to an interface (typically a WAN interface that is configured in DHCP6 mode where the ISP does not honor `ia-na` or provide a GUA)
 
-_Tested only on pfSense+ 22.05 + Verizon FIOS_
+_Tested only on pfSense+ 22.05 / Verizon FIOS, but should work for CE as well_
 
 # Setup
 
