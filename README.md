@@ -1,8 +1,8 @@
 # assign-gua-from-iapd
 
-Helper script for pfSense. It takes the first address from the top subnet of a delegated `::/56` and assigns it to an interface (typically a WAN interface that is configured in DHCP6 mode where the ISP does not honor `ia-na` or provide a GUA)
+Helper script for pfSense. It takes the first address from the top subnet of a delegated `::/56` and assigns it to an interface (typically a WAN interface configured in DHCP6 mode). Useful for situations where ISPs such as Verizon FIOS do not honor `ia-na` or provide a GUA to the router itself.
 
-_Tested only on pfSense+ 22.05 / Verizon FIOS, but should work for CE as well_
+_Tested only on pfSense+ 22.05, but should work for CE as well_
 
 # Setup
 
