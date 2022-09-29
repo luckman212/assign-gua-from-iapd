@@ -6,7 +6,8 @@ _Tested only on pfSense+ 22.05 + Verizon FIOS_
 
 # Setup
 
-Copy the script to your pfSense firewall and make it executable (`chmod u+x /root/assign_gua_from_iapd.sh`)
+1. Copy the script to your pfSense firewall and make it executable (`chmod u+x /root/assign_gua_from_iapd.sh`)
+2. Make sure the **DHCP6 Debug** checkbox is enabled at System → Advanced → Networking.
 
 # Usage
 
