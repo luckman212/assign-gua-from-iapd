@@ -17,8 +17,10 @@ assign_gua_from_iapd.sh <ifname>
 
 # Cron etc.
 
-You can schedule this to occur on regular intervals using the Cron package. Other integrations such as `devd` (probably needs to wait for FreeBSD 14 which will land with pfSense 22.11) or directly into the dhcp6c/rtsold scripts are left as an exercise to the reader 😉
+You can schedule this to occur on regular intervals using the Cron package. Other integrations such as `devd` (probably needs to wait for FreeBSD 14 which [brings a new `ADDR_ADD` event][1]— that will land with pfSense 22.11) or directly into the dhcp6c/rtsold scripts are left as an exercise to the reader 😉
 
 # Reference
 
 see [Netgate Forum thread](https://forum.netgate.com/topic/174980/fios-getting-56-pd-via-dhcp6-but-no-v6-is-assigned-to-wan/)
+
+[1]: https://reviews.freebsd.org/rGa75819461ec7c7d8468498362f9104637ff7c9e9
