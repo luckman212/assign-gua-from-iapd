@@ -32,6 +32,10 @@ THIS='assign_gua_from_iapd'
 LOCKFILE="/tmp/$THIS.lock"
 _acquire_lock
 
+if ! pgrep -lf 'dhcp6c.*-D' >/dev/null; then
+  _log "error: dhcp6c is not running or -D (debug) flag not found"
+  _die 1
+fi
 echo "waiting a few seconds for IA_PD"
 /bin/sleep 3
 IA_PD=$(/usr/bin/grep 'IA_PD prefix' /var/log/dhcpd.log | /usr/bin/tail -1 | /usr/bin/sed -rn 's#^.*IA_PD prefix: ([0-9a-f:]+/56).*$#\1#p')
