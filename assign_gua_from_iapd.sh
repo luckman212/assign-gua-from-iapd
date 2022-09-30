@@ -58,5 +58,6 @@ if ! /sbin/ifconfig $IFACE inet6 | /usr/bin/grep -q $GUA; then
 else
   _log "$GUA already exists on interface $IFACE"
 fi
+/usr/local/bin/php -r 'include("interfaces.inc"); create_interface_ipv6_cfgcache($argv[1]);' "$IFACE"
 
 _die 0
