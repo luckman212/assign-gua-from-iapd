@@ -9,6 +9,8 @@ _Tested only on pfSense+ 22.05, but should work for CE as well_
 1. Copy the script to your pfSense firewall and make it executable (`chmod u+x /root/assign_gua_from_iapd.sh`)
 2. Make sure the **DHCP6 Debug** checkbox is enabled at System → Advanced → Networking.
 
+> **N.B.** if you haven't applied my patch from [PR #4595][3] you'll need to comment out [line 57][4] (put `//` at the start of the line, or just delete it) because the `create_interface_ipv6_cfgcache()` function doesn't exist in the base pfSense (yet). 
+
 # Usage
 
 ```shell
@@ -27,3 +29,5 @@ see [Netgate Forum thread](https://forum.netgate.com/topic/174980/fios-getting-5
 
 [1]: https://reviews.freebsd.org/rGa75819461ec7c7d8468498362f9104637ff7c9e9
 [2]: https://github.com/luckman212/pfsense/commit/a20cd10a34020e09dcdc14882c04dc749d3c6487
+[3]: https://github.com/pfsense/pfsense/pull/4595/
+[4]: https://github.com/luckman212/assign-gua-from-iapd/blob/main/assign_gua_from_iapd.sh#L57
