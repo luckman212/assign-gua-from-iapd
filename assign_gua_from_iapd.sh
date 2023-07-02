@@ -37,7 +37,7 @@ echo "waiting a few seconds for IA_PD"
 IA_PD=$(/usr/bin/grep 'IA_PD prefix' /var/log/dhcpd.log | /usr/bin/tail -1 | /usr/bin/sed -rn 's#^.*IA_PD prefix: ([0-9a-f:]+/56).*$#\1#p')
 [ -n "$IA_PD" ] || { _log "no IA_PD detected in logs"; _die 1; }
 _log "IA_PD found: $IA_PD"
-GUA=$(/usr/local/bin/python3.8 -c '
+GUA=$(/usr/local/bin/python3.11 -c '
 import sys, ipaddress
 nets = list(ipaddress.ip_network(sys.argv[1]).subnets(new_prefix=64))
 last_net = ipaddress.IPv6Network(nets[-1],strict=False)
